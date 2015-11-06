@@ -49,6 +49,14 @@ Click handler for each item in the autocomplete list. Fired before the internal 
 default: `'a'`
 Custom element to use for each `<li>` in the autocomplete list. Can be a React Element or a valid DOM tag as a string, such as `<CustomElement>` or `'div'`
 
+#### hiddenClassName
+default: ``${classPrefix}__menu--hidden``
+Class name override to be set when hiding the autocomplete list
+
+#### openClassName
+default: ``${classPrefix}__menu--open``
+Class name override to be set when showing the autocomplete list
+
 ## Advanced Props
 
 All of the following allow you to extend ([via spread operator](https://facebook.github.io/react/docs/transferring-props.html)) the properties of the individual elements that make up the `Search` component.
