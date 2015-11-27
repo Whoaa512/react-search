@@ -18,6 +18,8 @@ class Search extends Component {
     return {
       classPrefix: PropTypes.string,
       items: PropTypes.array.isRequired,
+      keys: PropTypes.array,
+      searchKey: PropTypes.string,
       placeHolder: PropTypes.string,
       onChange: PropTypes.func,
       onClick: PropTypes.func,
@@ -85,11 +87,35 @@ class Search extends Component {
     const inputClassName = `${this.props.classPrefix}__input`
     const menuClassName = `${this.props.classPrefix}__menu ${this.props.hiddenClassName}`
 
-    let items = this.state.matchingItems.map((item, i) => (
-      <li key={i} className={`${this.props.classPrefix}__menu-item`} {...itemProps}>
-        <ItemElement {...itemElemProps} onClick={this.selectAutoComplete.bind(this)}>{item}</ItemElement>
-      </li>
-    ))
+    let items = []
+
+    if ((this.props.keys !== undefined)) {
+      /* items for hash results */
+      items = this.state.matchingItems.map((item, i) => {
+        return (
+          <li key={i}
+              className={`${this.props.classPrefix}__menu-item`}
+              onClick={this.selectAutoComplete.bind(this)}>
+            {
+              this.props.keys.map((itemKey, j) => {
+                return (
+                  <ItemElement key={j}>
+                  { item[itemKey] }
+                  </ItemElement>
+                )
+              })
+            }
+          </li>
+        )
+      })
+    } else {
+      /* items for a simple array */
+      items = this.state.matchingItems.map((item, i) => (
+        <li key={i} className={`${this.props.classPrefix}__menu-item`} {...itemProps}>
+          <ItemElement {...itemElemProps} onClick={this.selectAutoComplete.bind(this)}>{item}</ItemElement>
+        </li>
+      ))
+    }
 
     return (
       <div className={this.props.classPrefix} {...wrapperProps}>
