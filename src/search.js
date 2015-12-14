@@ -16,6 +16,10 @@ class Search extends Component {
 
   static get propTypes () {
     return {
+      AutoCompleteListElem: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string
+      ]),
       classPrefix: PropTypes.string,
       customSearchFn: PropTypes.func,
       items: PropTypes.array.isRequired,
@@ -74,6 +78,7 @@ class Search extends Component {
   render () {
     const {
       ItemElement,
+      AutoCompleteListElem = 'ul',
       inputProps = {},
       inputWrapperProps = {},
       itemElemProps = {},
@@ -131,9 +136,9 @@ class Search extends Component {
         </div>
 
         <div className={menuClassName} ref='autocomplete' {...autoCompleteProps}>
-          <ul className={`${this.props.classPrefix}__menu-items`} {...autoCompleteListProps}>
+          <AutoCompleteListElem className={`${this.props.classPrefix}__menu-items`} {...autoCompleteListProps}>
             {items}
-          </ul>
+          </AutoCompleteListElem>
         </div>
 
       </div>

@@ -49,6 +49,10 @@ Click handler for each item in the autocomplete list. Fired before the internal 
 default: `'a'`
 Custom element to use for each `<li>` in the autocomplete list. Can be a React Element or a valid DOM tag as a string, such as `<CustomElement>` or `'div'`
 
+#### `AutoCompleteListElem`
+default: `'ul'`
+Custom element to use as wrapper for autocomplete list. Can be a React Element or a valid DOM tag as a string, such as `<CustomElement>` or `'div'`
+
 ## Advanced Props
 
 All of the following allow you to extend ([via spread operator](https://facebook.github.io/react/docs/transferring-props.html)) the properties of the individual elements that make up the `Search` component.
