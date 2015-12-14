@@ -149,8 +149,8 @@ class Search extends Component {
 }
 
 function toggleAutoCompleteClass (className, isOpen, props) {
-  const hiddenClassName = getOpenClassName(props)
-  const openClassName = getHiddenClassName(props)
+  const hiddenClassName = getHiddenClassName(props)
+  const openClassName = getOpenClassName(props)
   if (isOpen) {
     return className.replace(openClassName, hiddenClassName)
   }
