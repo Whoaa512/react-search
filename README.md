@@ -69,7 +69,7 @@ Property extensions for the each individual autocomplete list elements. *Note: l
 #### `autoCompleteListProps`
 Property extensions for the autocomplete `<ul>`
 
-#### `autoCompleteProps`
+#### `autoCompleteWrapperProps`
 Property extensions for the autocomplete wrapper
 
 #### `wrapperProps`

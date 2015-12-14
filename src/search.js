@@ -38,7 +38,7 @@ class Search extends Component {
       inputWrapperProps: PropTypes.object,
       itemProps: PropTypes.object,
       autoCompleteListProps: PropTypes.object,
-      autoCompleteProps: PropTypes.object,
+      autoCompleteWrapperProps: PropTypes.object,
       wrapperProps: PropTypes.object
     }
   }
@@ -82,7 +82,7 @@ class Search extends Component {
       inputWrapperProps = {},
       itemProps = {},
       autoCompleteListProps = {},
-      autoCompleteProps = {},
+      autoCompleteWrapperProps = {},
       wrapperProps = {}
     } = this.props
     const inputClassName = `${this.props.classPrefix}__input`
@@ -137,7 +137,7 @@ class Search extends Component {
           />
         </div>
 
-        <div className={menuClassName} ref='autocomplete' {...autoCompleteProps}>
+        <div className={menuClassName} ref='autocomplete' {...autoCompleteWrapperProps}>
           <AutoCompleteListElem className={`${this.props.classPrefix}__menu-items`} {...autoCompleteListProps}>
             {items}
           </AutoCompleteListElem>
