@@ -108,7 +108,7 @@ class Search extends Component {
       /* items for a simple array */
       items = this.state.matchingItems.map((item, i) => (
         <li key={i} className={`${this.props.classPrefix}__menu-item`} {...itemProps}>
-          <ItemElement {...itemElemProps} onClick={this.selectAutoComplete.bind(this)}>
+          <ItemElement {...item} {...itemElemProps} onClick={this.selectAutoComplete.bind(this)}>
             {typeof item === 'object' ? JSON.stringify(item, null, 2) : item}
           </ItemElement>
         </li>
