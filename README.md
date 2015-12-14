@@ -56,6 +56,9 @@ All of the following allow you to extend ([via spread operator](https://facebook
 #### `inputProps`
 Property extensions for the text input
 
+#### `inputWrapperProps`
+Property extensions for the wrapper around text input
+
 #### `itemProps`
 Property extensions for the each individual autocomplete `<li>`
 

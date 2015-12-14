@@ -31,6 +31,7 @@ class Search extends Component {
       ]),
       itemElemProps: PropTypes.object,
       inputProps: PropTypes.object,
+      inputWrapperProps: PropTypes.object,
       itemProps: PropTypes.object,
       autoCompleteListProps: PropTypes.object,
       autoCompleteProps: PropTypes.object,
@@ -72,6 +73,7 @@ class Search extends Component {
     const {
       ItemElement,
       inputProps = {},
+      inputWrapperProps = {},
       itemElemProps = {},
       itemProps = {},
       autoCompleteListProps = {},
@@ -115,15 +117,16 @@ class Search extends Component {
 
     return (
       <div className={this.props.classPrefix} {...wrapperProps}>
-
-       <input
-            type='text'
-            className={inputClassName}
-            placeholder={this.props.placeHolder}
-            ref='searchInput'
-            onKeyUp={this.changeInput.bind(this)}
-            {...inputProps}
-        />
+        <div {...inputWrapperProps}>
+          <input
+              type='text'
+              className={inputClassName}
+              placeholder={this.props.placeHolder}
+              ref='searchInput'
+              onKeyUp={this.changeInput.bind(this)}
+              {...inputProps}
+          />
+        </div>
 
         <div className={menuClassName} ref='autocomplete' {...autoCompleteProps}>
           <ul className={`${this.props.classPrefix}__menu-items`} {...autoCompleteListProps}>
