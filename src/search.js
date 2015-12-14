@@ -40,12 +40,6 @@ class Search extends Component {
 
   constructor (props) {
     super(props)
-    if (this.props.hiddenClassName == null) {
-      this.props.hiddenClassName = `${this.props.classPrefix}__menu--hidden`
-    }
-    if (this.props.openClassName == null) {
-      this.props.openClassName = `${this.props.classPrefix}__menu--open`
-    }
     this.state = {
       matchingItems: []
     }
@@ -143,10 +137,28 @@ class Search extends Component {
 }
 
 function toggleAutoCompleteClass (className, isOpen, props) {
+  const hiddenClassName = getOpenClassName(props)
+  const openClassName = getHiddenClassName(props)
   if (isOpen) {
-    return className.replace(props.openClassName, props.hiddenClassName)
+    return className.replace(openClassName, hiddenClassName)
   }
-  return className.replace(props.hiddenClassName, props.openClassName)
+  return className.replace(hiddenClassName, openClassName)
+}
+
+function getHiddenClassName (props) {
+  let hiddenClassName = props.hiddenClassName
+  if (hiddenClassName == null) {
+    hiddenClassName = `${props.classPrefix}__menu--hidden`
+  }
+  return hiddenClassName
+}
+
+function getOpenClassName (props) {
+  let openClassName = props.openClassName
+  if (openClassName == null) {
+    openClassName = `${props.classPrefix}__menu--open`
+  }
+  return openClassName
 }
 
 module.exports = Search
