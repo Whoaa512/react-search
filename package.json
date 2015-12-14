@@ -1,14 +1,15 @@
 {
-  "name": "react-search",
+  "name": "@whoaa/react-search",
   "version": "1.0.3",
   "description": "a simple search component",
   "main": "lib/search.js",
   "jsnext:main": "src/search.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/StevenIseki/react-search.git"
+    "url": "https://github.com/Whoaa512/react-search.git"
   },
-  "author": "Steven Iseki <stevenisekimartin@gmail.com>",
+  "author": "C.J. Winslow <whoaa512@gmail.com> (http://github.com/whoaa512)",
+  "originalAuthor": "Steven Iseki <stevenisekimartin@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "react": "^0.14.0"
