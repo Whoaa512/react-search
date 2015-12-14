@@ -17,6 +17,7 @@ class Search extends Component {
   static get propTypes () {
     return {
       classPrefix: PropTypes.string,
+      customSearchFn: PropTypes.func,
       items: PropTypes.array.isRequired,
       keys: PropTypes.array,
       searchKey: PropTypes.string,
@@ -41,6 +42,7 @@ class Search extends Component {
 
   constructor (props) {
     super(props)
+    this.search = typeof this.props.customSearchFn === 'function' ? this.props.customSearchFn : SearchItemInArray
     this.state = {
       matchingItems: []
     }
@@ -54,7 +56,7 @@ class Search extends Component {
     let autocomplete = this.refs.autocomplete
     autocomplete.className = toggleAutoCompleteClass(autocomplete.className, false, this.props)
     let searchValue = this.refs.searchInput.value
-    let result = SearchItemInArray(this.props.items, searchValue)
+    let result = this.search(this.props.items, searchValue)
     this.setState({matchingItems: result})
   }
 
