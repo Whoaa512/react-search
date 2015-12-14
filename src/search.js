@@ -34,7 +34,6 @@ class Search extends Component {
         PropTypes.element,
         PropTypes.string
       ]),
-      itemElemProps: PropTypes.object,
       inputProps: PropTypes.object,
       inputWrapperProps: PropTypes.object,
       itemProps: PropTypes.object,
@@ -77,11 +76,10 @@ class Search extends Component {
 
   render () {
     const {
-      ItemElement,
       AutoCompleteListElem = 'ul',
+      ItemElement = 'li',
       inputProps = {},
       inputWrapperProps = {},
-      itemElemProps = {},
       itemProps = {},
       autoCompleteListProps = {},
       autoCompleteProps = {},
@@ -114,11 +112,15 @@ class Search extends Component {
     } else {
       /* items for a simple array */
       items = this.state.matchingItems.map((item, i) => (
-        <li key={i} className={`${this.props.classPrefix}__menu-item`} {...itemProps}>
-          <ItemElement {...item} {...itemElemProps} onClick={this.selectAutoComplete.bind(this)}>
-            {typeof item === 'object' ? JSON.stringify(item, null, 2) : item}
-          </ItemElement>
-        </li>
+        <ItemElement
+            className={`${this.props.classPrefix}__menu-item`}
+            key={i}
+            {...itemProps}
+            {...item}
+            onClick={this.selectAutoComplete.bind(this)}
+        >
+          {typeof item === 'object' ? JSON.stringify(item, null, 2) : item}
+        </ItemElement>
       ))
     }
 

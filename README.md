@@ -46,7 +46,7 @@ Update handler for the text input. Fired before the internal logic to update the
 Click handler for each item in the autocomplete list. Fired before the internal logic to hide the autocomplete list
 
 #### `ItemElement`
-default: `'a'`
+default: `'li'`
 Custom element to use for each `<li>` in the autocomplete list. Can be a React Element or a valid DOM tag as a string, such as `<CustomElement>` or `'div'`
 
 #### `AutoCompleteListElem`
@@ -64,10 +64,7 @@ Property extensions for the text input
 Property extensions for the wrapper around text input
 
 #### `itemProps`
-Property extensions for the each individual autocomplete `<li>`
-
-#### `itemElemProps`
-Property extensions for the each child element of autocomplete `<li>`
+Property extensions for the each individual autocomplete list elements. *Note: list elements will also be extended with an items properties*
 
 #### `autoCompleteListProps`
 Property extensions for the autocomplete `<ul>`
