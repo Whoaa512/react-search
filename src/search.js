@@ -17,7 +17,9 @@ class Search extends Component {
   static get propTypes () {
     return {
       AutoCompleteListElem: PropTypes.oneOfType([
+        PropTypes.func,
         PropTypes.element,
+        PropTypes.node,
         PropTypes.string
       ]),
       classPrefix: PropTypes.string,
@@ -31,7 +33,9 @@ class Search extends Component {
       hiddenClassName: PropTypes.string,
       openClassName: PropTypes.string,
       ItemElement: PropTypes.oneOfType([
+        PropTypes.func,
         PropTypes.element,
+        PropTypes.node,
         PropTypes.string
       ]),
       inputProps: PropTypes.object,
