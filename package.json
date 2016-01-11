@@ -1,6 +1,6 @@
 {
   "name": "@whoaa/react-search",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "An extensible search component",
   "main": "lib/search.js",
   "jsnext:main": "src/search.js",
